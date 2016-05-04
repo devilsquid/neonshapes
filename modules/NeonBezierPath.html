@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>neonshapes</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/NeonShapes.html">NeonShapes</a></li>
+  <li><strong>NeonBezierPath</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>NeonBezierPath</code></h1>
+<p>neonbezierpath.lua</p>
+<p> A neon version of a drawn Bézier curve</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (options)</a></td>
+	<td class="summary">Create and draws a cubic Bézier path with neon effects</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:setAnchorPoint">bezierPath:setAnchorPoint (ax, ay)</a></td>
+	<td class="summary">Sets the anchor point
+ This moves the whole curve internally while the position of the GroupObject
+ itself stays the same.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:setStrokeColor">bezierPath:setStrokeColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the stroke color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:setGlowColor">bezierPath:setGlowColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the glow color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:setFlicker">bezierPath:setFlicker (state)</a></td>
+	<td class="summary">Sets the flicker effect on or off</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:Reset">bezierPath:Reset ()</a></td>
+	<td class="summary">Resets the flicker effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:UpdateFlicker">bezierPath:UpdateFlicker ()</a></td>
+	<td class="summary">Do the flicker effects</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#bezierPath:timer">bezierPath:timer (event)</a></td>
+	<td class="summary">bezierPath:timer( event )</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (options)</strong>
+    </dt>
+    <dd>
+    Create and draws a cubic Bézier path with neon effects
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with options for the Bézier curve</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em> nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the x position of the path (<em>default</em> 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the y position of the path (<em>default</em> 0)</li>
+<li><code>controlPoints</code>:      (<strong>array</strong>) an array with a continuous list of control point coordinates like </li>
+<li><code>glow</code>:               (<strong>number</strong>) the size of the neon glow effect (<em>default</em> 64)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) the color of the glow effect (<em>default</em> {1,1,1,1})</li>
+<li><code>glowDensity</code>:        (<strong>number</strong>) the density of the glow effect (<em>default</em> 100)</li>
+<li><code>glowIntensity</code>:      (<strong>number</strong>) the intensity (alpha) of the neon glow effect (<em>default</em> 0.8)</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width of the inner body (<em>default</em> 2)</li>
+<li><code>bodyDensity</code>:        (<strong>number</strong>) the density of the inner body (<em>default</em> 100)</li>
+<li><code>bodyIntensity</code>:      (<strong>number</strong>) the intensity (alpha) of the inner body (<em>default</em> 0.8)</li>
+<li><code>antiAlias</code>:          (<strong>bool</strong>) if antiAlias simulation for the inner body should be used (<em>default</em> false)</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em> false)</li>
+<li><code>flickerStyle</code>:       (<strong>number</strong>) choose between flicker style 1, 2, 3, 4 or 5 (<em>default</em> 1)
+1 is a light vibrating flickering, 2, 3 and 4 add some hard short flickers, where 2 does some seldom hard flicker
+and 4 does often hard flicker. 5 is most of the time dark, and sometime lightens up.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        bezier path GroupObject
+    </ol>
+
+
+    <h3>See also:</h3>
+    <ul>
+    </ul>
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="keyword">local</span> BezierPath = <span class="global">require</span>( <span class="string">"devilsquid.util.bezier.bezierpath"</span> )
+
+  <span class="keyword">local</span> squidBody = NeonBezierPath:new({
+     bodyDensity = <span class="number">200</span>,
+     glowDensity = <span class="number">30</span>,
+     glow = <span class="number">64</span>,
+     glowColor = {<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>},
+     strokeWidth = <span class="number">12</span>,
+     glowIntensity = <span class="number">0.5</span>,
+     strokeIntensity = <span class="number">0.3</span>,
+     antiAlias = <span class="keyword">true</span>,
+     controlPoints={<span class="number">305</span>,<span class="number">464</span>,<span class="number">260</span>,<span class="number">433</span>,<span class="number">279</span>,<span class="number">323</span>,<span class="number">248</span>,<span class="number">373</span>,<span class="number">279</span>,<span class="number">323</span>,<span class="number">297</span>,<span class="number">281</span>,<span class="number">400</span>,<span class="number">199</span>,<span class="number">373</span>,<span class="number">198</span>,<span class="number">400</span>,<span class="number">199</span>,<span class="number">430</span>,<span class="number">198</span>,<span class="number">518</span>,<span class="number">330</span>,
+     <span class="number">504</span>,<span class="number">292</span>,<span class="number">518</span>,<span class="number">330</span>,<span class="number">535</span>,<span class="number">365</span>,<span class="number">498</span>,<span class="number">461</span>,<span class="number">547</span>,<span class="number">430</span>,<span class="number">498</span>,<span class="number">461</span>,<span class="number">521</span>,<span class="number">510</span>,<span class="number">456</span>,<span class="number">509</span>,<span class="number">500</span>,<span class="number">550</span>,<span class="number">456</span>,<span class="number">509</span>,<span class="number">473</span>,<span class="number">584</span>,<span class="number">410</span>,<span class="number">534</span>,<span class="number">439</span>,<span class="number">613</span>,
+     <span class="number">410</span>,<span class="number">534</span>,<span class="number">395</span>,<span class="number">668</span>,<span class="number">350</span>,<span class="number">511</span>,<span class="number">351</span>,<span class="number">631</span>,<span class="number">350</span>,<span class="number">511</span>,<span class="number">300</span>,<span class="number">601</span>,<span class="number">306</span>,<span class="number">467</span>,<span class="number">268</span>,<span class="number">527</span>}
+     })</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "bezierPath:setAnchorPoint"></a>
+    <strong>bezierPath:setAnchorPoint (ax, ay)</strong>
+    </dt>
+    <dd>
+    Sets the anchor point
+ This moves the whole curve internally while the position of the GroupObject
+ itself stays the same.  You can use this to change the anchor point.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">ax</span>
+            <span class="types"><span class="type">number</span></span>
+         moves the curve on x axis
+        </li>
+        <li><span class="parameter">ay</span>
+            <span class="types"><span class="type">number</span></span>
+         moves the curve on y axis
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+ <span class="keyword">local</span> border = Neon:bezier({
+     bodyDensity = <span class="number">800</span>,
+     glowDensity = <span class="number">60</span>,
+     glow = <span class="number">64</span>,
+     glowColor = {<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>},
+     strokeWidth = <span class="number">12</span>,
+     glowIntensity = <span class="number">0.5</span>,
+     strokeIntensity = <span class="number">0.3</span>,
+     antiAlias = <span class="keyword">true</span>,
+     controlPoints={<span class="number">142</span>,<span class="number">715</span>,<span class="number">129</span>,<span class="number">716</span>,<span class="number">104</span>,<span class="number">715</span>,<span class="number">117</span>,<span class="number">716</span>,<span class="number">104</span>,<span class="number">715</span>,<span class="number">78</span>,<span class="number">716</span>,<span class="number">65</span>,<span class="number">677</span>,<span class="number">65</span>,<span class="number">704</span>,<span class="number">65</span>,<span class="number">677</span>,<span class="number">65</span>,<span class="number">638</span>,<span class="number">65</span>,<span class="number">157</span>,<span class="number">66</span>,<span class="number">203</span>,
+     <span class="number">65</span>,<span class="number">157</span>,<span class="number">65</span>,<span class="number">131</span>,<span class="number">105</span>,<span class="number">118</span>,<span class="number">80</span>,<span class="number">118</span>,<span class="number">105</span>,<span class="number">118</span>,<span class="number">144</span>,<span class="number">117</span>,<span class="number">688</span>,<span class="number">117</span>,<span class="number">675</span>,<span class="number">117</span>,<span class="number">688</span>,<span class="number">117</span>,<span class="number">715</span>,<span class="number">118</span>,<span class="number">730</span>,<span class="number">157</span>,<span class="number">729</span>,<span class="number">132</span>,<span class="number">730</span>,<span class="number">157</span>,<span class="number">729</span>,
+     <span class="number">132</span>,<span class="number">729</span>,<span class="number">676</span>,<span class="number">730</span>,<span class="number">623</span>,<span class="number">729</span>,<span class="number">676</span>,<span class="number">728</span>,<span class="number">701</span>,<span class="number">689</span>,<span class="number">716</span>,<span class="number">715</span>,<span class="number">715</span>,<span class="number">689</span>,<span class="number">716</span>,<span class="number">676</span>,<span class="number">717</span>,<span class="number">651</span>,<span class="number">716</span>,<span class="number">662</span>,<span class="number">716</span>}
+     })
+ border:setAnchorPoint( <span class="number">15</span>, <span class="number">15</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "bezierPath:setStrokeColor"></a>
+    <strong>bezierPath:setStrokeColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the stroke color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bezierPath:setGlowColor"></a>
+    <strong>bezierPath:setGlowColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the glow color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bezierPath:setFlicker"></a>
+    <strong>bezierPath:setFlicker (state)</strong>
+    </dt>
+    <dd>
+    Sets the flicker effect on or off
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for on, false for off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bezierPath:Reset"></a>
+    <strong>bezierPath:Reset ()</strong>
+    </dt>
+    <dd>
+    Resets the flicker effect
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bezierPath:UpdateFlicker"></a>
+    <strong>bezierPath:UpdateFlicker ()</strong>
+    </dt>
+    <dd>
+    Do the flicker effects
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "bezierPath:timer"></a>
+    <strong>bezierPath:timer (event)</strong>
+    </dt>
+    <dd>
+    bezierPath:timer( event )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-03-15 16:49:52 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

@@ -1,0 +1,1222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc_devilsquid.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<div class="DS-logo"></div>
+<br/>
+<h1>neonshapes</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>NeonShapes</strong></li>
+  <li><a href="../modules/NeonBezierPath.html">NeonBezierPath</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>NeonShapes</code></h1>
+<p>neon.lua</p>
+<p> A set of shapes with neon effects</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: DevilSquid, René Aye 2016</li>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: René Aye</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Neon:circle">Neon:circle (options)</a></td>
+	<td class="summary">Create neon circle shape objects</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setStrokeColor">circle:setStrokeColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the stroke color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setFillColor">circle:setFillColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the fill color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setGlowColor">circle:setGlowColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the glow color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setFlareAlpha">circle:setFlareAlpha (alpha)</a></td>
+	<td class="summary">Sets the opacity of the flare effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setFlarePosition">circle:setFlarePosition (nx, ny)</a></td>
+	<td class="summary">Sets the position of the flare effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setFlareRotation">circle:setFlareRotation (rot)</a></td>
+	<td class="summary">Sets the rotation of the flare effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setFlareScale">circle:setFlareScale (sx, sy)</a></td>
+	<td class="summary">Sets the scale of the flare effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#circle:setFlicker">circle:setFlicker (state)</a></td>
+	<td class="summary">Sets the flicker effect on or off</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Neon:rect">Neon:rect (options)</a></td>
+	<td class="summary">Create neon rectangle shape objects</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect:setFillColor">rect:setFillColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the fill color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect:setStrokeColor">rect:setStrokeColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the stroke color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect:setGlowColor">rect:setGlowColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the glow color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#rect:setFlicker">rect:setFlicker (state)</a></td>
+	<td class="summary">Sets the flicker effect on or off</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Neon:text">Neon:text (options)</a></td>
+	<td class="summary">Create neon bitmap text object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text:setFillColor">text:setFillColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the text body color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text:setGlowColor">text:setGlowColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the glow color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#text:setFlicker">text:setFlicker (state)</a></td>
+	<td class="summary">Sets the flicker effect on or off</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Neon:polygon">Neon:polygon (options)</a></td>
+	<td class="summary">Create polygon shape object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:setFillColor">poly:setFillColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the body color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:setStrokeColor">poly:setStrokeColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the stroke color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:setGlowColor">poly:setGlowColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the glow color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:setFlicker">poly:setFlicker (state)</a></td>
+	<td class="summary">Sets the flicker effect on or off</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:Reset">poly:Reset ()</a></td>
+	<td class="summary">Resets the flicker effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:UpdateFlicker">poly:UpdateFlicker ()</a></td>
+	<td class="summary">Do the flicker effects</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#poly:timer">poly:timer (event)</a></td>
+	<td class="summary">poly:timer( event )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Neon:line">Neon:line (options)</a></td>
+	<td class="summary">Create line shape object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line:setStrokeColor">line:setStrokeColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the stroke color of the inner body</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line:setGlowColor">line:setGlowColor (r, g, b, a)</a></td>
+	<td class="summary">Sets the glow color</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line:setFlicker">line:setFlicker (state)</a></td>
+	<td class="summary">Sets the flicker effect on or off</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line:Reset">line:Reset ()</a></td>
+	<td class="summary">Resets the flicker effect</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line:UpdateFlicker">line:UpdateFlicker ()</a></td>
+	<td class="summary">Do the flicker effects</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#line:timer">line:timer (event)</a></td>
+	<td class="summary">line:timer( event )</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Neon:bezier">Neon:bezier (options)</a></td>
+	<td class="summary">Create and draws a cubic Bézier path with neon effects</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Neon:circle"></a>
+    <strong>Neon:circle (options)</strong>
+    </dt>
+    <dd>
+    Create neon circle shape objects
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with all options for the circle</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em>: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the center x position of the circle (<em>default</em>: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the center y position of the circle (<em>default</em>: 0)</li>
+<li><code>radius</code>:             (<strong>number</strong>) the radius of the circle (<em>default</em>: 50)</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width of the inner body (<em>default</em>: 2)</li>
+<li><code>glow</code>:               (<strong>number</strong>) the size of the glow effect (<em>default</em>: 64)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) the color of the glow effect (<em>default</em> {1,1,1,1})</li>
+<li><code>antiAlias</code>:          (<strong>bool</strong>) if antiAlias simulation for the inner body should be used (<em>default</em>: false)</li>
+<li><code>showFlare</code>:          (<strong>bool</strong>) if an extra flare effects should be drawn (<em>default</em>: false)</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em> false)</li>
+<li><code>flickerStyle</code>:       (<strong>number</strong>) choose between flicker style 1, 2, 3, 4 or 5 (<em>default</em> 1)
+1 is a light vibrating flickering, 2, 3 and 4 add some hard short flickers, where 2 does some seldom hard flicker
+and 4 does often hard flicker. 5 is most of the time dark, and sometime lightens up.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="global">require</span>(<span class="string">"devilsquid.neonshapes.neon"</span>)
+  <span class="keyword">local</span> circle = Neon:circle({x=<span class="number">450</span>,y=<span class="number">400</span>, radius=<span class="number">100</span>, strokeWidth=<span class="number">12</span>, glow=<span class="number">96</span>, antiAlias=<span class="keyword">true</span>, showFlare=<span class="keyword">true</span>})
+  circle:setGlowColor(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)
+  circle:setFlareRotation(-<span class="number">12</span>)
+  circle:setFlarePosition(-<span class="number">25</span>,-<span class="number">97</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "circle:setStrokeColor"></a>
+    <strong>circle:setStrokeColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the stroke color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setFillColor"></a>
+    <strong>circle:setFillColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the fill color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setGlowColor"></a>
+    <strong>circle:setGlowColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the glow color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setFlareAlpha"></a>
+    <strong>circle:setFlareAlpha (alpha)</strong>
+    </dt>
+    <dd>
+    Sets the opacity of the flare effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">alpha</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha value from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setFlarePosition"></a>
+    <strong>circle:setFlarePosition (nx, ny)</strong>
+    </dt>
+    <dd>
+    Sets the position of the flare effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">nx</span>
+            <span class="types"><span class="type">number</span></span>
+         new x position
+        </li>
+        <li><span class="parameter">ny</span>
+            <span class="types"><span class="type">number</span></span>
+         new y position
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setFlareRotation"></a>
+    <strong>circle:setFlareRotation (rot)</strong>
+    </dt>
+    <dd>
+    Sets the rotation of the flare effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">rot</span>
+            <span class="types"><span class="type">number</span></span>
+         new angle of the flare effect
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setFlareScale"></a>
+    <strong>circle:setFlareScale (sx, sy)</strong>
+    </dt>
+    <dd>
+    Sets the scale of the flare effect
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">sx</span>
+            <span class="types"><span class="type">number</span></span>
+         new x scale size
+        </li>
+        <li><span class="parameter">sy</span>
+            <span class="types"><span class="type">number</span></span>
+         new y scale size
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "circle:setFlicker"></a>
+    <strong>circle:setFlicker (state)</strong>
+    </dt>
+    <dd>
+    Sets the flicker effect on or off
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for on, false for off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Neon:rect"></a>
+    <strong>Neon:rect (options)</strong>
+    </dt>
+    <dd>
+    Create neon rectangle shape objects
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with all options for the rectangle</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em>: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the center x position of the circle (<em>default</em>: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the center y position of the circle (<em>default</em>: 0)</li>
+<li><code>width</code>:              (<strong>number</strong>) the width of the rectangle (<em>default</em>: 100)</li>
+<li><code>height</code>:             (<strong>number</strong>) the height of the rectangle (<em>default</em>: 100)</li>
+<li><code>cornerRadius</code>:       (<strong>number</strong>) corner radius for rounded rectangles  (<em>default</em>: 0)</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width of the inner body (<em>default</em>: 2)</li>
+<li><code>glow</code>:               (<strong>number</strong>) the size of the glow effect (<em>default</em>: 64)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) the color of the glow effect (<em>default</em> {1,1,1,1})</li>
+<li><code>antiAlias</code>:          (<strong>bool</strong>) if antiAlias simulation for the inner body should be used (<em>default</em>: false)</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em> false)</li>
+<li><code>flickerStyle</code>:       (<strong>number</strong>) choose between flicker style 1, 2, 3, 4 or 5 (<em>default</em> 1)
+1 is a light vibrating flickering, 2, 3 and 4 add some hard short flickers, where 2 does some seldom hard flicker
+and 4 does often hard flicker. 5 is most of the time dark, and sometime lightens up.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="global">require</span>(<span class="string">"devilsquid.neonshapes.neon"</span>)
+  <span class="keyword">local</span> rect = Neon:rect({x=<span class="number">200</span>,y=<span class="number">200</span>, strokeWidth=<span class="number">12</span>, glow=<span class="number">64</span>, antiAlias=<span class="keyword">true</span>})
+  rect:setStrokeColor(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "rect:setFillColor"></a>
+    <strong>rect:setFillColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the fill color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rect:setStrokeColor"></a>
+    <strong>rect:setStrokeColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the stroke color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rect:setGlowColor"></a>
+    <strong>rect:setGlowColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the glow color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "rect:setFlicker"></a>
+    <strong>rect:setFlicker (state)</strong>
+    </dt>
+    <dd>
+    Sets the flicker effect on or off
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for on, false for off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Neon:text"></a>
+    <strong>Neon:text (options)</strong>
+    </dt>
+    <dd>
+    Create neon bitmap text object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with all options for the text</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em>: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the center x position of the circle (<em>default</em>: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the center y position of the circle (<em>default</em>: 0)</li>
+<li><a href="../modules/NeonShapes.html#Neon:text">text</a>:               (<strong>string</strong>) the text to display (<em>default</em>: &lsquo;Lorem ipsum&rsquo;)</li>
+<li><code>font</code>:               (<strong>string</strong>) the name of the font. Right now you have two options: &ldquo;NeonFontClean&rdquo; and &ldquo;NeonFontDistorted&rdquo;</li>
+<li><code>fontSize</code>:           (<strong>number</strong>) the size of the text (<em>default</em>: 80)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) color table with r,g,b,a components  (<em>default</em> {1,0,0,1})</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em>: false)</li>
+<li><code>flickerStyle</code>:       (<strong>number</strong>) choose between flicker style 1, 2, 3, 4 or 5 (<em>default</em> 1)
+1 is a light vibrating flickering, 2, 3 and 4 add some hard short flickers, where 2 does some seldom hard flicker
+and 4 does often hard flicker. 5 is most of the time dark, and sometime lightens up.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="global">require</span>(<span class="string">"devilsquid.neonshapes.neon"</span>)
+  <span class="keyword">local</span> text = Neon:text({text=<span class="string">"DevilSquid"</span>, x=<span class="number">430</span>,y=<span class="number">700</span>, fontSize=<span class="number">120</span>, glowColor={<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>}, flickerEffect=<span class="keyword">true</span>})</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "text:setFillColor"></a>
+    <strong>text:setFillColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the text body color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "text:setGlowColor"></a>
+    <strong>text:setGlowColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the glow color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "text:setFlicker"></a>
+    <strong>text:setFlicker (state)</strong>
+    </dt>
+    <dd>
+    Sets the flicker effect on or off
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for on, false for off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Neon:polygon"></a>
+    <strong>Neon:polygon (options)</strong>
+    </dt>
+    <dd>
+    Create polygon shape object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with all options for the polygon</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em>: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the center x position of the circle (<em>default</em>: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the center y position of the circle (<em>default</em>: 0)</li>
+<li><code>vertices</code>:           (<strong>array</strong>) array of coordinates</li>
+<li><code>glow</code>:               (<strong>number</strong>) the size of the glow effect (<em>default</em>: 64)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) the color of the glow effect (<em>default</em> {1,1,1,1})</li>
+<li><code>antiAlias</code>:          (<strong>bool</strong>) if antiAlias simulation for the inner body should be used (<em>default</em>: false)</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em> false)</li>
+<li><code>flickerStyle</code>:       (<strong>number</strong>) choose between flicker style 1, 2, 3, 4 or 5 (<em>default</em> 1)
+1 is a light vibrating flickering, 2, 3 and 4 add some hard short flickers, where 2 does some seldom hard flicker
+and 4 does often hard flicker. 5 is most of the time dark, and sometime lightens up.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="global">require</span>(<span class="string">"devilsquid.neonshapes.neon"</span>)
+  <span class="keyword">local</span> polygon = Neon:polygon({ x=<span class="number">200</span>, y=<span class="number">1000</span>, strokeWidth=<span class="number">12</span>, glow=<span class="number">25</span>, antiAlias=<span class="keyword">true</span>, vertices={ <span class="number">100</span>,<span class="number">1000</span>, <span class="number">300</span>,<span class="number">1200</span>, <span class="number">150</span>, <span class="number">1600</span> } })
+  polygon:setGlowColor(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "poly:setFillColor"></a>
+    <strong>poly:setFillColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the body color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poly:setStrokeColor"></a>
+    <strong>poly:setStrokeColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the stroke color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poly:setGlowColor"></a>
+    <strong>poly:setGlowColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the glow color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poly:setFlicker"></a>
+    <strong>poly:setFlicker (state)</strong>
+    </dt>
+    <dd>
+    Sets the flicker effect on or off
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for on, false for off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poly:Reset"></a>
+    <strong>poly:Reset ()</strong>
+    </dt>
+    <dd>
+    Resets the flicker effect
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poly:UpdateFlicker"></a>
+    <strong>poly:UpdateFlicker ()</strong>
+    </dt>
+    <dd>
+    Do the flicker effects
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "poly:timer"></a>
+    <strong>poly:timer (event)</strong>
+    </dt>
+    <dd>
+    poly:timer( event )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Neon:line"></a>
+    <strong>Neon:line (options)</strong>
+    </dt>
+    <dd>
+    Create line shape object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with all options for the line</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em>: nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the center x position of the circle (<em>default</em>: 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the center y position of the circle (<em>default</em>: 0)</li>
+<li><code>vertices</code>:           (<strong>array</strong>) array of coordinates</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width of the inner body (<em>default</em>: 2)</li>
+<li><code>glow</code>:               (<strong>number</strong>) the size of the glow effect (<em>default</em>: 64)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) the color of the glow effect (<em>default</em> {1,1,1,1})</li>
+<li><code>antiAlias</code>:          (<strong>bool</strong>) if antiAlias simulation for the inner body should be used (<em>default</em>: false)</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em> false)</li>
+<li><code>flickerStyle</code>:       (<strong>number</strong>) choose between flicker style 1, 2, 3, 4 or 5 (<em>default</em> 1)
+1 is a light vibrating flickering, 2, 3 and 4 add some hard short flickers, where 2 does some seldom hard flicker
+and 4 does often hard flicker. 5 is most of the time dark, and sometime lightens up.</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="global">require</span>(<span class="string">"devilsquid.neonshapes.neon"</span>)
+  <span class="keyword">local</span> line = Neon:line({x=<span class="number">200</span>,y=<span class="number">200</span>, strokeWidth=<span class="number">12</span>, glow=<span class="number">64</span>, antiAlias=<span class="keyword">true</span>, vertices={ <span class="number">100</span>,<span class="number">400</span>, <span class="number">200</span>,<span class="number">300</span>, <span class="number">150</span>, <span class="number">750</span> }})
+  line:setStrokeColor(<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>)</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "line:setStrokeColor"></a>
+    <strong>line:setStrokeColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the stroke color of the inner body
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "line:setGlowColor"></a>
+    <strong>line:setGlowColor (r, g, b, a)</strong>
+    </dt>
+    <dd>
+    Sets the glow color
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">r</span>
+            <span class="types"><span class="type">number</span></span>
+         red component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">g</span>
+            <span class="types"><span class="type">number</span></span>
+         green component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">b</span>
+            <span class="types"><span class="type">number</span></span>
+         blue component from 0.0 to 1.0
+        </li>
+        <li><span class="parameter">a</span>
+            <span class="types"><span class="type">number</span></span>
+         alpha component from 0.0 to 1.0
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "line:setFlicker"></a>
+    <strong>line:setFlicker (state)</strong>
+    </dt>
+    <dd>
+    Sets the flicker effect on or off
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+         true for on, false for off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "line:Reset"></a>
+    <strong>line:Reset ()</strong>
+    </dt>
+    <dd>
+    Resets the flicker effect
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "line:UpdateFlicker"></a>
+    <strong>line:UpdateFlicker ()</strong>
+    </dt>
+    <dd>
+    Do the flicker effects
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "line:timer"></a>
+    <strong>line:timer (event)</strong>
+    </dt>
+    <dd>
+    line:timer( event )
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">event</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Neon:bezier"></a>
+    <strong>Neon:bezier (options)</strong>
+    </dt>
+    <dd>
+    Create and draws a cubic Bézier path with neon effects
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">options</span>
+        <p> a table with options for the Bézier curve</p>
+
+<ul>
+<li><code>parent</code>:             (<strong>GroupObject</strong>) the parent object (<em>default</em> nil)</li>
+<li><code>x</code>:                  (<strong>number</strong>) the x position of the path (<em>default</em> 0)</li>
+<li><code>y</code>:                  (<strong>number</strong>) the y position of the path (<em>default</em> 0)</li>
+<li><code>controlPoints</code>:      (<strong>array</strong>) an array with a continuous list of control point coordinates like </li>
+<li><code>glow</code>:               (<strong>number</strong>) the size of the neon glow effect (<em>default</em> 64)</li>
+<li><code>glowColor</code>:          (<strong>rgba table</strong>) the color of the glow effect (<em>default</em> {1,1,1,1})</li>
+<li><code>glowDensity</code>:        (<strong>number</strong>) the density of the glow effect (<em>default</em> 100)</li>
+<li><code>glowIntensity</code>:      (<strong>number</strong>) the intensity (alpha) of the neon glow effect (<em>default</em> 0.8)</li>
+<li><code>strokeWidth</code>:        (<strong>number</strong>) the stroke width of the inner body (<em>default</em> 2)</li>
+<li><code>bodyDensity</code>:        (<strong>number</strong>) the density of the inner body (<em>default</em> 100)</li>
+<li><code>bodyIntensity</code>:      (<strong>number</strong>) the intensity (alpha) of the inner body (<em>default</em> 0.8)</li>
+<li><code>antiAlias</code>:          (<strong>bool</strong>) if antiAlias simulation for the inner body should be used (<em>default</em> false)</li>
+<li><code>flickerEffect</code>:      (<strong>bool</strong>) activate flickering effect (<em>default</em> false)</li>
+</ul>
+
+
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">
+  <span class="keyword">local</span> BezierPath = <span class="global">require</span>( <span class="string">"devilsquid.util.bezier.bezierpath"</span> )
+
+  <span class="keyword">local</span> squidBody = NeonBezierPath:new({
+     bodyDensity = <span class="number">200</span>,
+     glowDensity = <span class="number">30</span>,
+     glow = <span class="number">64</span>,
+     glowColor = {<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>},
+     strokeWidth = <span class="number">12</span>,
+     glowIntensity = <span class="number">0.5</span>,
+     strokeIntensity = <span class="number">0.3</span>,
+     antiAlias = <span class="keyword">true</span>,
+     controlPoints={<span class="number">305</span>,<span class="number">464</span>,<span class="number">260</span>,<span class="number">433</span>,<span class="number">279</span>,<span class="number">323</span>,<span class="number">248</span>,<span class="number">373</span>,<span class="number">279</span>,<span class="number">323</span>,<span class="number">297</span>,<span class="number">281</span>,<span class="number">400</span>,<span class="number">199</span>,<span class="number">373</span>,<span class="number">198</span>,<span class="number">400</span>,<span class="number">199</span>,<span class="number">430</span>,<span class="number">198</span>,<span class="number">518</span>,<span class="number">330</span>,
+     <span class="number">504</span>,<span class="number">292</span>,<span class="number">518</span>,<span class="number">330</span>,<span class="number">535</span>,<span class="number">365</span>,<span class="number">498</span>,<span class="number">461</span>,<span class="number">547</span>,<span class="number">430</span>,<span class="number">498</span>,<span class="number">461</span>,<span class="number">521</span>,<span class="number">510</span>,<span class="number">456</span>,<span class="number">509</span>,<span class="number">500</span>,<span class="number">550</span>,<span class="number">456</span>,<span class="number">509</span>,<span class="number">473</span>,<span class="number">584</span>,<span class="number">410</span>,<span class="number">534</span>,<span class="number">439</span>,<span class="number">613</span>,
+     <span class="number">410</span>,<span class="number">534</span>,<span class="number">395</span>,<span class="number">668</span>,<span class="number">350</span>,<span class="number">511</span>,<span class="number">351</span>,<span class="number">631</span>,<span class="number">350</span>,<span class="number">511</span>,<span class="number">300</span>,<span class="number">601</span>,<span class="number">306</span>,<span class="number">467</span>,<span class="number">268</span>,<span class="number">527</span>}
+     })</pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.3</a></i>
+<i style="float:right;">Last updated 2016-03-15 16:49:52 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
